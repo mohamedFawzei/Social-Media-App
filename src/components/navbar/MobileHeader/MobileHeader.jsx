@@ -6,7 +6,7 @@ const MobileHeader = () => {
   const { user } = useAuth();
 
   return (
-    <div className="min-h-16 py-3 px-4 flex items-center justify-between pt-[calc(env(safe-area-inset-top)+12px)] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 transition-colors sticky top-0 z-40">
+    <div className="min-h-16 py-3 px-4 flex items-center justify-between pt-[calc(env(safe-area-inset-top)+12px)] transition-colors w-full">
       {/* Logo Area */}
       <Link to="/" className="flex items-center gap-2">
         <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">

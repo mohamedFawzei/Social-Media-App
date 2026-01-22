@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useHeaderAnimation } from "../../Hooks/useHeaderAnimation";
 import MobileHeader from "../../components/navbar/MobileHeader/MobileHeader";
 import Feed from "../../features/posts/components/Feed/Feed";
 import LeftSidebar from "./Components/LeftSidebar";
 import RightSidebar from "./Components/RightSidebar";
 
 const Home = () => {
+  const headerRef = useRef(null);
+  useHeaderAnimation(headerRef, "mobile");
+
   useEffect(() => {
     document.title = "Home | Posts";
   }, []);
@@ -12,7 +16,10 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0f172a] transition-colors duration-500 font-sans selection:bg-indigo-500/30">
       {/* Mobile Header Hidden on Desktop */}
-      <header className="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-[#0f172a]/80 backdrop-blur-md border-b border-white/5">
+      <header
+        ref={headerRef}
+        className="fixed top-0 left-0 right-0 z-50 block md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+      >
         <MobileHeader />
       </header>
 

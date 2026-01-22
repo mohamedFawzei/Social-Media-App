@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import { gsap } from "gsap";
+import { useState, useContext, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Home,
@@ -15,6 +14,7 @@ import avatar from "../../../assets/images/Avatar/AvatarDefault.svg";
 import { AuthContext } from "../../../Context/AuthContext";
 import { useTheme } from "../../../Context/ThemeContext";
 import SettingsModal from "../../../features/auth/components/modals/SettingsModal/SettingsModal";
+import { useHeaderAnimation } from "../../../Hooks/useHeaderAnimation";
 
 const navItems = [
   { icon: Home, label: "Home", path: "/home" },
@@ -51,78 +51,14 @@ const DesktopNavbar = () => {
 
   // ---------------- Scroll Animation ----------------
   const { theme } = useTheme();
-
-  useEffect(() => {
-    // Disable scroll on chat page
-    if (pathname === "chat") return;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isSystemDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      const isDarkMode =
-        theme === "dark" || (theme === "system" && isSystemDark);
-
-      if (currentScrollY > 20) {
-        //  Floating Pill
-        gsap.to("header", {
-          top: "20px",
-          width: "90%",
-          left: "5%",
-          borderRadius: "9999px",
-          backgroundColor: isDarkMode
-            ? "rgba(30, 41, 59, 0.8)" // Dark glass
-            : "rgba(255, 255, 255, 0.8)", // Light glass
-          backdropFilter: "blur(16px)",
-          boxShadow:
-            "0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-          border: isDarkMode
-            ? "1px solid rgba(255, 255, 255, 0.05)"
-            : "1px solid rgba(255, 255, 255, 0.5)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-          duration: 0.4,
-          ease: "power3.out",
-        });
-        gsap.to("header > div", {
-          height: "60px",
-          duration: 0.3,
-        });
-      } else {
-        //  Full width
-        gsap.to("header", {
-          top: "0px",
-          width: "100%",
-          left: "0%",
-          borderRadius: "0px",
-          backgroundColor: isDarkMode
-            ? "#1e293b" // slate-800
-            : "#ffffff",
-          backdropFilter: "blur(0px)",
-          boxShadow: "0 0 0 0 transparent",
-          border: "1px solid transparent",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-          duration: 0.4,
-          ease: "power3.out",
-        });
-        gsap.to("header > div", {
-          height: "68px",
-          duration: 0.3,
-        });
-      }
-    };
-
-    // Initial check
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname, theme]);
+  const headerRef = useRef(null);
+  useHeaderAnimation(headerRef, "desktop");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-sm transition-all duration-300">
+    <header
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-sm transition-all duration-300"
+    >
       <div className="max-w-7xl mx-auto px-4 h-17 flex items-center justify-between">
         {/* ---------------- left ---------------- */}
         <div className="flex items-center gap-3">

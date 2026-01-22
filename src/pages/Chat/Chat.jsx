@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Search, MoreVertical } from "lucide-react";
 import { contacts } from "../../Data/Contacts";
-import { useEffect } from "react";
-useEffect;
+import { useEffect, useRef } from "react";
+import { useHeaderAnimation } from "../../Hooks/useHeaderAnimation";
+
 const Chat = () => {
   const navigate = useNavigate();
+  const headerRef = useRef(null);
+  useHeaderAnimation(headerRef, "mobile");
+
   useEffect(() => {
     document.title = "Socail App | Messages";
   }, []);
@@ -12,7 +16,10 @@ const Chat = () => {
   return (
     <section className="chat min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white pb-20 transition-colors duration-300">
       {/* Header */}
-      <div className="sticky md:static top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5 px-4 min-h-16 py-3 flex items-center justify-between pt-[calc(env(safe-area-inset-top)+12px)] md:pt-4 md:bg-transparent md:border-none md:mb-6 transition-colors">
+      <div
+        ref={headerRef}
+        className="fixed md:static top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 min-h-16 py-3 flex items-center justify-between pt-[calc(env(safe-area-inset-top)+12px)] md:pt-4 md:bg-transparent md:border-none md:mb-6"
+      >
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate(-1)}
@@ -45,7 +52,7 @@ const Chat = () => {
       </div>
 
       {/*  mobile Section */}
-      <div className="mobileSection">
+      <div className="mobileSection pt-28 md:pt-0">
         {/* Active Now */}
         <div className="px-4 py-4">
           <h2 className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-3">

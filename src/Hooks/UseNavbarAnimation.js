@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 
 export const useNavbarAnimation = ({
@@ -9,6 +9,15 @@ export const useNavbarAnimation = ({
 }) => {
   const timelineRef = useRef(null);
   const prevProfileOpen = useRef(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0,
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useLayoutEffect(() => {
     const indicator = indicatorRef.current;
@@ -66,5 +75,5 @@ export const useNavbarAnimation = ({
     tl.to(activeIcon, { y: -22, scale: 1.1, color: "#fff" }, "-=0.25");
 
     prevProfileOpen.current = false;
-  }, [activeTab, isProfileOpen]);
+  }, [activeTab, isProfileOpen, windowWidth]);
 };
