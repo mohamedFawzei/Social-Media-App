@@ -10,7 +10,7 @@ const Chat = () => {
   }, []);
 
   return (
-    <section className="chat min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-20 transition-colors duration-300">
+    <section className="chat min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white pb-20 transition-colors duration-300">
       {/* Header */}
       <div className="sticky md:static top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5 px-4 min-h-16 py-3 flex items-center justify-between pt-[calc(env(safe-area-inset-top)+12px)] md:pt-4 md:bg-transparent md:border-none md:mb-6 transition-colors">
         <div className="flex items-center gap-3">
