@@ -2,12 +2,11 @@ import avatarDefault from "../../../../assets/images/Avatar/AvatarDefault.svg";
 const ProfileHeader = ({ user, postsCount, onEditProfile, userPhotoProp }) => {
   const { name } = user || {};
 
-  // Use prop photo if available
+  // Use photo if available
   const displayPhoto = userPhotoProp || user?.photo || avatarDefault;
 
   return (
     <div className="relative group/header">
-      {/* Gradient */}
       {/* Gradient */}
       <div className="h-80 bg-linear-to-br from-indigo-100 via-purple-100 to-slate-200 dark:from-indigo-900 dark:via-purple-900 dark:to-slate-900 relative overflow-hidden transition-colors duration-500">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>

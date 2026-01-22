@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import {
   X,
   Upload,
@@ -20,10 +21,11 @@ import toast from "react-hot-toast";
 import ImageCropModal from "../ImageCropModal/ImageCropModal";
 
 const SettingsModal = ({ isOpen, onClose, initialTab = "general" }) => {
-  const { user, saveUserData } = useAuth();
+  const { user, saveUserData, logout } = useAuth();
   const { theme, setTheme } = useTheme();
   const [activeTab, setActiveTab] = useState(initialTab);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   // password state
   const [passwords, setPasswords] = useState({
@@ -72,6 +74,8 @@ const SettingsModal = ({ isOpen, onClose, initialTab = "general" }) => {
       toast.success("Password changed successfully");
       setPasswords({ password: "", newPassword: "", confirmNewPassword: "" });
       onClose();
+      logout();
+      navigate("/login");
     } catch (error) {
       toast.error(error.response?.data?.error || "Failed to change password");
     } finally {

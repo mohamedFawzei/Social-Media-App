@@ -1,19 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Camera, FileText } from "lucide-react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
 import PostCard from "../../../posts/components/PostCard/PostCard";
 import PostSkeleton from "../../../posts/components/PostSkeleton/PostSkeleton";
-import avatarDefault from "../../../../assets/images/Avatar/AvatarDefault.svg";
-import { FileText, Camera } from "lucide-react";
 
-const ProfileContent = ({
-  activeTab,
-  posts,
-  isLoading,
-  mediaPosts,
-
-  userPhoto,
-  userName,
-}) => {
+const ProfileContent = ({ activeTab, posts, isLoading, mediaPosts }) => {
   const navigate = useNavigate();
 
   // Loading State
@@ -75,9 +66,7 @@ const ProfileContent = ({
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    {/* Icon can be added here if needed */}
-                  </div>
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
                 </div>
               ))}
             </div>
@@ -90,7 +79,6 @@ const ProfileContent = ({
   );
 };
 
-// Sub-components for cleaner file
 
 const EmptyState = ({ type }) => {
   const content = {

@@ -33,7 +33,7 @@ export function useAuthRegister() {
       const user = res.data.user;
       const token = res.data.token;
 
-      // Use context login to ensure state sync
+      // Use context login
       login(token, user);
 
       navigate("/");

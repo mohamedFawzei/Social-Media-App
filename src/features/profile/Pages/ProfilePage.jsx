@@ -28,7 +28,7 @@ const ProfilePage = () => {
     setShowCropModal,
   } = useProfilePhoto();
 
-  const { posts, mediaPosts, isLoading } = useProfileData(user);
+  const { posts, mediaPosts } = useProfileData(user);
 
   // Local UI State
   const [activeTab, setActiveTab] = useState("posts");
@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0f172a] pb-10 transition-colors duration-300">
-      {/* Hidden Input for File Upload */}
+      {/* Hidden Input */}
       <input
         type="file"
         ref={fileInputRef}

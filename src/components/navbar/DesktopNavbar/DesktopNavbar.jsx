@@ -49,17 +49,15 @@ const DesktopNavbar = () => {
     navigate("/login");
   };
 
-  // ---------------- Scroll Animation Logic ----------------
-  // ---------------- Scroll Animation Logic ----------------
+  // ---------------- Scroll Animation ----------------
   const { theme } = useTheme();
 
   useEffect(() => {
-    // Disable scroll animation on chat page
+    // Disable scroll on chat page
     if (pathname === "chat") return;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Resolve dark mode from theme context to avoid race condition with DOM update
       const isSystemDark = window.matchMedia(
         "(prefers-color-scheme: dark)",
       ).matches;
@@ -92,7 +90,7 @@ const DesktopNavbar = () => {
           duration: 0.3,
         });
       } else {
-        //  Full width, Standard
+        //  Full width
         gsap.to("header", {
           top: "0px",
           width: "100%",

@@ -54,6 +54,8 @@ const EditPostModal = ({ isOpen, onClose, post }) => {
     formData.append("body", content);
     if (image) {
       formData.append("image", image);
+    } else if (!currentImage) {
+      formData.append("removeImage", "true");
     }
 
     mutate(formData);

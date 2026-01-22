@@ -1,6 +1,5 @@
-import React from "react";
+import { Compass, Ghost, Home } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Home, Compass, Ghost } from "lucide-react";
 
 const NotFound = () => {
   return (

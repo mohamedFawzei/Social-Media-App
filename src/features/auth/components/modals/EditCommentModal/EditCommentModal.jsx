@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { X, Send, Loader2 } from "lucide-react";
-import { useContext } from "react";
-import { AuthContext } from "../../../../../Context/AuthContext";
-import api from "../../../../../Lib/Axios";
 import { useQueryClient } from "@tanstack/react-query";
+import { Loader2, X } from "lucide-react";
+import { useContext, useState } from "react";
+import { createPortal } from "react-dom";
+import { AuthContext } from "../../../../../Context/AuthContext";
+import { updateComment } from "../../../../posts/Api/Posts.api";
 
 const EditCommentModal = ({ comment, onClose }) => {
   const [content, setContent] = useState(comment.content);
@@ -17,31 +17,20 @@ const EditCommentModal = ({ comment, onClose }) => {
 
     setIsPending(true);
     try {
-      // Optimistic assumption: Endpoint is /posts/:postId/comments/:commentId
-      // or just /posts/comments/:commentId
-      // Let's try the most common pattern for this codebase.
-      // Actually, let's look at how comments are created.
+      await updateComment(comment.postId, comment._id, { content });
 
-      // I'll use a direct axios call.
-      await api.put(`/posts/${comment.postId}/comments/${comment._id}`, {
-        content,
-      });
-
-      // Invalidate queries to refresh list
       queryClient.invalidateQueries(["userPosts", user._id]);
-      // Also invalidate specific post if we looked at it
       queryClient.invalidateQueries(["post", comment.postId]);
 
       onClose();
     } catch (error) {
       // console.error("Failed to update comment", error);
-      // Maybe show error toast
     } finally {
       setIsPending(false);
     }
   };
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="w-full max-w-md bg-slate-900 border border-white/10 rounded-3xl p-6 shadow-2xl scale-100 animate-in zoom-in-95 duration-200">
         <div className="flex items-center justify-between mb-6">
@@ -90,7 +79,8 @@ const EditCommentModal = ({ comment, onClose }) => {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
 

@@ -55,7 +55,20 @@ export const addComment = async (postData) => {
 };
 
 // delete comment
-export const deleteComment = async (commentId) => {
-  const { data } = await api.delete(`/comments/${commentId}`);
+export const deleteComment = async (postId, commentId) => {
+  if (!commentId) {
+    commentId = postId;
+    return (await api.delete(`/comments/${commentId}`)).data;
+  }
+  const { data } = await api.delete(`/posts/${postId}/comments/${commentId}`);
+  return data;
+};
+
+// update comment
+export const updateComment = async (postId, commentId, commentData) => {
+  const { data } = await api.put(
+    `/posts/${postId}/comments/${commentId}`,
+    commentData,
+  );
   return data;
 };

@@ -1,6 +1,6 @@
-import { createPortal } from "react-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { X, Trash2, Loader2, AlertTriangle } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
+import { createPortal } from "react-dom";
 import { deletePost } from "../../../../posts/Api/Posts.api";
 
 const DeletePostModal = ({ isOpen, onClose, postId }) => {

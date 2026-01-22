@@ -8,16 +8,12 @@ const DeleteCommentModal = ({ onClose, comment }) => {
   const queryClient = useQueryClient();
 
   const { mutate, isPending } = useMutation({
-    mutationFn: () => deleteComment(comment._id),
+    mutationFn: () => deleteComment(comment.postId, comment._id),
     onSuccess: () => {
       toast.success("Comment deleted");
-      // Update the cache - invalidate posts (so comments reload)
-      // Ideally we would update optimistic state, but invalidation is safer/easier
+      // Update the cache 
       queryClient.invalidateQueries({ queryKey: ["posts"] });
-      queryClient.invalidateQueries({ queryKey: ["user-posts"] }); // If comments shown there
-
-      // Also update local storage cache if needed?
-      // For now, let's rely on server state.
+      queryClient.invalidateQueries({ queryKey: ["user-posts"] }); 
       onClose();
     },
     onError: (error) => {

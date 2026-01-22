@@ -41,7 +41,7 @@ const ImageCropModal = ({ image, onComplete, onCancel }) => {
           </button>
         </div>
 
-        {/* Crop Area */}
+        {/* Crop Section */}
         <div className="relative h-[400px] w-full bg-slate-950/50">
           <Cropper
             image={image}
@@ -112,7 +112,7 @@ const ImageCropModal = ({ image, onComplete, onCancel }) => {
   );
 };
 
-// Helper function to create cropped image
+// function to create cropped image
 const getCroppedImg = async (imageSrc, pixelCrop) => {
   const image = await createImage(imageSrc);
   const canvas = document.createElement("canvas");

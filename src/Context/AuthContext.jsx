@@ -35,11 +35,10 @@ export const AuthContextProvider = ({ children }) => {
         // console.log("Decoded token", decoded);
         // Ensure accurate check for expiration
         if (decoded.exp && decoded.exp * 1000 < Date.now()) {
-          // console.log("Token expired, logging out...");
           logout();
           return;
         } else {
-          // The token might have: userId, id, _id, or a 'user' field
+          // userId, id, _id, or a 'user' field
           let userId = decoded.userId || decoded.id || decoded._id;
 
           if (!userId && decoded.user) {
@@ -68,9 +67,9 @@ export const AuthContextProvider = ({ children }) => {
           if (storedUser) {
             try {
               parsedUser = JSON.parse(storedUser);
-              // console.log(" Parsed stored user", parsedUser);
+              // console.log("stored user", parsedUser);
             } catch (e) {
-              // console.error("Failed to parse stored user", e);
+              // console.error("Failed to stored user", e);
             }
           }
 
