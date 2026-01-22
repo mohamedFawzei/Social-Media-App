@@ -1,0 +1,22 @@
+1- create Navbar
+                            * dont forget to change icons *
+
+     -Mobile Navbar should make it on mobile only and using gsap to make the animation smooth
+     -Desktop Navbar should make it on tablet to desktop width 
+     -- dark mode 
+     --- if you has token must hide login  * Same in Register *
+     --- if you dont has token must show login  * Same in Register *
+
+2- Register 
+                            * You should show errors , use zod , and make schemas *
+     - install zod 
+     - make folder schemas 
+     -                       * Register form example *
+     -  "name": "Ahmed Bahnasy", input-1 
+        "email":"bahnasy2040101@gmail.com", email-2 
+        "password":"Bahnasy@123", password-3
+        "rePassword":"Bahnasy@123", password-4
+        "dateOfBirth":"7-10-1994", date-5
+        "gender":"male" radio-6
+3- login 
+            
