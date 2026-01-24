@@ -2,16 +2,16 @@
 
 A modern, full-featured social media application built with React and Tailwind CSS. This project focuses on a premium user experience with smooth animations, robust theme management, and valid authentication flows.
 
-## 🚀 Key Features
+##  Key Features
 
-### 🔐 Authentication
+###  Authentication
 
 - **Secure Login & Registration**: Fully validated forms using `react-hook-form` and `yup`.
-- **User Feedback**: Toast notifications for success/error states (e.g., "Login Success", "Invalid Credentials").
+- **User Feedback**: Toast notifications for success/error states ("Login Success", "Invalid Credentials").
 - **Password Visibility**: Toggle to show/hide passwords.
 - **Protected Routes**: Secure navigation using `GuestRoute` (for public pages) and `ProtectedRoute` (for authenticated content).
 
-### 🎨 UI/UX & Theming
+###  UI/UX & Theming
 
 - **Robust Theme System**:
   - Supports **Light**, **Dark**, and **System** modes.
@@ -26,7 +26,7 @@ A modern, full-featured social media application built with React and Tailwind C
   - Soft shadows and borders for depth management.
   - Responsive layouts for all screen sizes.
 
-### 📱 Key Functionalities
+###  Key Functionalities
 
 - **Post Feed**: Infinite scrolling feed with post interactions.
 - **Post Details**: detailed view of posts with comments.
@@ -34,7 +34,7 @@ A modern, full-featured social media application built with React and Tailwind C
 - **Profile**: User profile page with dynamic data.
 - **Settings**: Modal to manage application appearance and user preferences.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: React (Vite)
 - **Styling**: Tailwind CSS, PostCSS
@@ -44,7 +44,7 @@ A modern, full-featured social media application built with React and Tailwind C
 - **Data Fetching**: TanStack Query (React Query), Axios
 - **Icons**: Lucide React
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -58,7 +58,7 @@ src/
 └── index.css        # Global styles and Tailwind configuration
 ```
 
-## ⚡ Getting Started
+##  Getting Started
 
 1.  **Install Dependencies**:
 
@@ -77,7 +77,7 @@ src/
     npm run build
     ```
 
-## 📸 Highlights
+##  Highlights
 
 - **Dynamic Scroll Animations**: The desktop navbar transforms from a full-width header to a floating glass pill on scroll.
 - **Polished Mobile Experience**: Native-app feel with safe-area padding and sticky bottom navigation.
