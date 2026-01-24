@@ -42,7 +42,6 @@ A modern, full-featured social media application built with React and Tailwind C
 - **State Management**: React Context API
 - **Form Handling**: React Hook Form, Yup
 - **Data Fetching**: TanStack Query (React Query), Axios
-- **Notifications**: React Hot Toast
 - **Icons**: Lucide React
 
 ## 📂 Project Structure
