@@ -10,7 +10,7 @@ export function useAuthLogin() {
   const navigate = useNavigate();
 
   const handleSuccess = async (responseData) => {
-    console.log("login response", responseData);
+  //console.log("login response", responseData);
 
     const token = responseData.token;
     let user =

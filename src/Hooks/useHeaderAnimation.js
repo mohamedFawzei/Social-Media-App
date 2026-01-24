@@ -53,7 +53,7 @@ export const useHeaderAnimation = (ref, type = "desktop") => {
             });
           }
         } else {
-          // Full Width 
+          // Full Width
           gsap.to(element, {
             top: "0px",
             width: "100%",
@@ -95,7 +95,7 @@ export const useHeaderAnimation = (ref, type = "desktop") => {
               ? "rgba(15, 23, 42, 0.85)"
               : "rgba(255, 255, 255, 0.85)",
             backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
+
             boxShadow: "0 4px 15px -3px rgb(0 0 0 / 0.1)",
             border: isDarkMode
               ? "1px solid rgba(255, 255, 255, 0.1)"
@@ -119,7 +119,7 @@ export const useHeaderAnimation = (ref, type = "desktop") => {
               ? "rgba(15, 23, 42, 0.8)"
               : "rgba(255, 255, 255, 0.8)",
             backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
+
             boxShadow: "0 0 0 0 transparent",
             borderBottom: isDarkMode
               ? "1px solid rgba(255, 255, 255, 0.05)"

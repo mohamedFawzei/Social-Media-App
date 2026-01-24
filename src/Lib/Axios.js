@@ -14,9 +14,9 @@ api.interceptors.request.use(
       config.headers["token"] = token;
     }
 
-    console.log(`Request: ${config.method.toUpperCase()} ${config.url}`, {
-      headers: config.headers,
-    });
+    // console.log(`Request: ${config.method.toUpperCase()} ${config.url}`, {
+    //   headers: config.headers,
+    // });
 
     return config;
   },

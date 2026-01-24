@@ -46,7 +46,7 @@ export const useProfilePhoto = () => {
         setImageToCrop(null);
       }
     } catch (error) {
-      console.error(error);
+      //console.error(error);
       toast.error("Failed to upload photo", { id: toastId });
     } finally {
       setIsUploading(false);

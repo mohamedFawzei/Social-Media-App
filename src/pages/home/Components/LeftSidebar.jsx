@@ -110,32 +110,33 @@ const LeftSidebar = () => {
       </div>
 
       <div className="mt-8 px-4 text-xs text-slate-500 leading-relaxed">
-        <p>
-          © All rights reserved {new Date().getFullYear()} Mohamed Fawzi - UI &
-          Code{" "}
-          <ul className="text-xs">
-            <li>
-              Email:{" "}
-              <a
-                href="mailto:muhammadfawzei@gmail.com"
-                target="_blank"
-                className="hover:text-slate-400 duration-300"
-              >
-                muhammadfawzei@gmail.com
-              </a>
-            </li>
-            <li>
-              Phone: {<br></br>}
-              <a
-                href="tel:+201066587947"
-                target="_blank"
-                className="hover:text-slate-400 duration-300"
-              >
-                01066587947
-              </a>
-            </li>
-          </ul>
-        </p>
+        <ul className="text-xs">
+          {" "}
+          <p className="text-md">
+            © All rights reserved {new Date().getFullYear()} Mohamed Fawzi - UI
+            & Code{" "}
+          </p>
+          <li>
+            Email:{" "}
+            <a
+              href="mailto:muhammadfawzei@gmail.com"
+              target="_blank"
+              className="hover:text-slate-400 duration-300"
+            >
+              muhammadfawzei@gmail.com
+            </a>
+          </li>
+          <li>
+            Phone: {<br></br>}
+            <a
+              href="tel:+201066587947"
+              target="_blank"
+              className="hover:text-slate-400 duration-300"
+            >
+              01066587947
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

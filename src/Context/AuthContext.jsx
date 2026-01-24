@@ -117,7 +117,7 @@ export const AuthContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      console.error("failed to check user status", error);
+      //console.error(" check user status", error);
     }
   };
 
@@ -149,7 +149,7 @@ export const AuthContextProvider = ({ children }) => {
 
   // login
   const login = (newToken, userData) => {
-    console.log("🔍 AuthContext - login called with:", { newToken, userData });
+    //console.log("login called", { newToken, userData });
     localStorage.setItem("token", newToken);
     setToken(newToken);
     if (userData) {

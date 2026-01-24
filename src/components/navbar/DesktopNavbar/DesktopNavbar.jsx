@@ -33,7 +33,7 @@ const DesktopNavbar = () => {
   const navigate = useNavigate();
   const { logout, user } = useContext(AuthContext);
 
-  console.log("DesktopNavbar", user);
+  //console.log("DesktopNavbar", user);
 
   const { name: userName, photo: userPhoto } = user || {};
 
