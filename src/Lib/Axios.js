@@ -11,8 +11,12 @@ api.interceptors.request.use(
     // console.log("token ", token);
 
     if (token) {
-      config.headers.token = token;
+      config.headers["token"] = token;
     }
+
+    console.log(`Request: ${config.method.toUpperCase()} ${config.url}`, {
+      headers: config.headers,
+    });
 
     return config;
   },

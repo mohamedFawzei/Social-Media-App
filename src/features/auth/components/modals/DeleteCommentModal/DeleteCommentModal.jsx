@@ -11,9 +11,9 @@ const DeleteCommentModal = ({ onClose, comment }) => {
     mutationFn: () => deleteComment(comment.postId, comment._id),
     onSuccess: () => {
       toast.success("Comment deleted");
-      // Update the cache 
+      // Update the cache
       queryClient.invalidateQueries({ queryKey: ["posts"] });
-      queryClient.invalidateQueries({ queryKey: ["user-posts"] }); 
+      queryClient.invalidateQueries({ queryKey: ["user-posts"] });
       onClose();
     },
     onError: (error) => {

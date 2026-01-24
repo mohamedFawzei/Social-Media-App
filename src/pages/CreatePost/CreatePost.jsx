@@ -32,7 +32,7 @@ const CreatePost = () => {
       if (file.size > maxSizeInBytes) {
         setFileError("Image is too large! Max size is 1MB.");
         setImage(null);
-        e.target.value = null; // Clear input
+        e.target.value = null; 
         return;
       }
       setImage(file);
@@ -63,12 +63,12 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="min-h-[90vh] flex items-center justify-center px-4 py-12 bg-slate-50 dark:bg-[#0f172a] transition-colors duration-300">
+    <div className="min-h-[90vh] flex items-center justify-center px-4 py-12 pb-24 bg-slate-50 dark:bg-[#0f172a] transition-colors duration-300 overflow-x-hidden">
       <div className="w-full max-w-2xl relative">
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-indigo-600/20 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-purple-600/20 rounded-full blur-[100px] animate-pulse delay-700" />
+        <div className="absolute -top-10 -left-10 w-40 h-40 md:-top-20 md:-left-20 md:w-64 md:h-64 bg-indigo-600/20 rounded-full blur-[100px] animate-pulse" />
+        <div className="absolute -bottom-10 -right-10 w-40 h-40 md:-bottom-20 md:-right-20 md:w-64 md:h-64 bg-purple-600/20 rounded-full blur-[100px] animate-pulse delay-700" />
 
-        <div className="relative bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl rounded-3xl border border-slate-200 dark:border-white/10 p-8 md:p-10 shadow-2xl overflow-hidden transition-colors">
+        <div className="relative bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl rounded-3xl border border-slate-200 dark:border-white/10 p-6 md:p-10 shadow-2xl overflow-hidden transition-colors">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-3.5 bg-linear-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl border border-indigo-100 dark:border-white/5">
               <Sparkles

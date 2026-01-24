@@ -56,10 +56,6 @@ export const addComment = async (postData) => {
 
 // delete comment
 export const deleteComment = async (postId, commentId) => {
-  if (!commentId) {
-    commentId = postId;
-    return (await api.delete(`/comments/${commentId}`)).data;
-  }
   const { data } = await api.delete(`/posts/${postId}/comments/${commentId}`);
   return data;
 };

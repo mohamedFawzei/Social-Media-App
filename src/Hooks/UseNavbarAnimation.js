@@ -34,7 +34,7 @@ export const useNavbarAnimation = ({
     timelineRef.current = tl;
 
     if (isProfileOpen) {
-      tl.to(indicator, { scale: 0, duration: 0.25 }, 0);
+      tl.to(indicator, { scale: 0, xPercent: -50, duration: 0.25 }, 0);
 
       tl.to(
         icons.filter(Boolean),
@@ -64,11 +64,11 @@ export const useNavbarAnimation = ({
 
     if (prevProfileOpen.current) {
       // teleport then pop
-      tl.set(indicator, { x }, 0);
-      tl.to(indicator, { scale: 1 }, 0);
+      tl.set(indicator, { x, xPercent: -50 }, 0);
+      tl.to(indicator, { scale: 1, xPercent: -50 }, 0);
     } else {
-      tl.to(indicator, { scale: 1 }, 0);
-      tl.to(indicator, { x }, 0);
+      tl.to(indicator, { scale: 1, xPercent: -50 }, 0);
+      tl.to(indicator, { x, xPercent: -50 }, 0);
     }
 
     // Active icon

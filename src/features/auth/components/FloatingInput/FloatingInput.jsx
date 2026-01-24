@@ -69,7 +69,7 @@ const FloatingInput = ({
           </div>
         )}
 
-        {error && (
+        {error && type !== "password" && (
           <div className="absolute top-1/2 right-5 -translate-y-1/2 text-red-500 animate-pulse">
             <i className="fa-solid fa-circle-exclamation"></i>
           </div>
