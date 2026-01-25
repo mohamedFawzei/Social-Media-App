@@ -1,22 +1,29 @@
-1- create Navbar
-                            * dont forget to change icons *
+PROJECT PLAN - SOCIAL MEDIA APP
 
-     -Mobile Navbar should make it on mobile only and using gsap to make the animation smooth
-     -Desktop Navbar should make it on tablet to desktop width 
-     -- dark mode 
-     --- if you has token must hide login  * Same in Register *
-     --- if you dont has token must show login  * Same in Register *
+CORE FEATURES
+----------------
+[x] Authentication
+    - Login (Email/Password)
+    - Register (with validation)
+    - Google OAuth Integration
+    - Guest/Protected Routes
+[x] Posts
+    - Feed (Infinite Scroll)
+    - Create Post (Image Upload, Caption)
+    - Post Details (View single post)
+    - Likes & Claims (In progress)
+[x] Profile
+    - View Profile (User details, posts)
+    - Edit Profile (Image cropping, info update)
+[~] Chat
+    - Chat Page UI
 
-2- Register 
-                            * You should show errors , use zod , and make schemas *
-     - install zod 
-     - make folder schemas 
-     -                       * Register form example *
-     -  "name": "Ahmed Bahnasy", input-1 
-        "email":"bahnasy2040101@gmail.com", email-2 
-        "password":"Bahnasy@123", password-3
-        "rePassword":"Bahnasy@123", password-4
-        "dateOfBirth":"7-10-1994", date-5
-        "gender":"male" radio-6
-3- login 
-            
+2. UI/UX & THEMING
+------------------
+[x] Responsive Design (Mobile/Desktop)
+[x] Theme System (Light/Dark/System)
+[x] Animations (GSAP, Framer Motion)
+[x] Components
+    - Buttons, Inputs, Modals
+    - Loaders, Toasts
+
